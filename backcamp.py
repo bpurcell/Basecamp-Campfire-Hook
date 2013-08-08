@@ -1,5 +1,16 @@
-import requests, pinder, datetime, time, json
-import config
+import requests, pinder, datetime, time, json, ConfigParser
+
+Config = ConfigParser.RawConfigParser()
+Config.read("config.ini")
+
+username            = Config.get('defaults','username')
+password            = Config.get('defaults','password')
+campfire_key        = Config.get('defaults','campfire_key')
+subdomain           = Config.get('defaults','subdomain')
+room_id             = Config.get('defaults','room_id')
+basecamp_project_id = Config.get('defaults','basecamp_project_id')
+basecamp_id         = Config.get('defaults','basecamp_id')
+
 
 from pinder.campfire import Campfire
 
@@ -9,7 +20,7 @@ def notify_camp(todo):
     room.speak(todo)
 
 
-polling_interval = 5.0 # (100 requests in 3600 seconds)
+polling_interval = 1 # (100 requests in 3600 seconds)
 running= True
 while running:
     since = datetime.datetime.now().isoformat()

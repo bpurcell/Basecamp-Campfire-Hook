@@ -1,0 +1,8 @@
+[defaults]
+username            : email@email.com
+password            : password
+campfire_key        : 321654              #   this is your campfire api key.
+subdomain           : sample              #   Campfire subdomain   sample.campfirenow.com
+room_id             : 123456              #   Campfire Room Id
+basecamp_project_id : proj-321654         #   Basecamp project to track
+basecamp_id         : 123456              #   Base camp account id - https://basecamp.com/123546/api/v1/projects/proj-123456/
