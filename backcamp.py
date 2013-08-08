@@ -29,7 +29,7 @@ while running:
     r = requests.get('https://basecamp.com/'+basecamp_id+'/api/v1/projects/'+basecamp_project_id+'/events.json?since='+since+'-04:00', auth=(username, password))
     if r.json()  :
         for item in r.json():
-            notify_camp('['+basecamp_project_id+'] '+item['creator']['name']+' '+item['summary']+' - '+item['html_url'])
+            notify_camp('['+basecamp_project_id+'] '+item['creator']['name']+' '+item['summary'].replace('<span>:</span>','').replace('&quot;',"`")+' - '+item['html_url'])
 
     print('.')
         
